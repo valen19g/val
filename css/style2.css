@@ -1,0 +1,14 @@
+
+
+#nav-item{
+    text-align: right;
+    align-items: end;
+}
+#fondo{
+background: url(/img/hawaii.jpg ) no-repeat; 
+    background-size: cover;
+}
+#card-group{
+    width: 80%;
+    height: auto;
+}
