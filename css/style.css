@@ -1,0 +1,53 @@
+  .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+       flex-wrap: wrap;
+    
+      margin-top: 2%;  
+  }
+
+  .blue-border,
+  .aqua-border,
+  .gold-border {
+      border: 1px solid;
+      width: 25%;
+      padding: 32px;
+      text-align: center;
+      font-size: 24px;
+      color: black;
+      margin: 5px;
+  }
+
+  .blue-border {
+      border-color: blue;
+  }
+
+  .aqua-border {
+      border-color: rgb(16, 175, 175);
+  }
+
+  .gold-border {
+      border-color: gold;
+  }
+
+  .discount-text {
+      font-size: 18px;
+      color: gray;
+      margin-top: 10px;
+  }
+  .texto{ 
+    
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40%;
+    margin-top: 2%;
+
+  }
+.btn btn-success {background-color: lawngreen;}
+
+
+
+*{justify-content: center;
+    align-items: center;
+}    
