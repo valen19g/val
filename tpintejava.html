@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+
+
+    <head>
+        <title>TP integrador java</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    </head>
+
+
+
+<body>
+    <div id="contenedor">
+        <!-- Menu -->
+        <nav class="navbar navbar-expand-lg bg-dark">
+            <div class="container-fluid" ;>
+                <a class="navbar-brand" href="#">
+                    <img src="img/codoacodo.png" alt="Logo" height="40px">
+                    <span style="color: white;">Conf Bs As</span>
+                </a>
+    
+                <div class="collapse navbar-collapse" id="navbarNav" style="margin-left: 40%;">
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page">
+                                <p style="color:white">la conferencia</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">
+                                <p style="color:white">Los oradores</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">
+                                <p style="color:white">El lugar y la fecha</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">
+                                <p style="color: green;">comprar tickets</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+    <div class="container">
+        <div class="blue-border">
+            <strong>Estudiante</strong> 
+            <div class="discount-text" style="color: black;">
+                Tiene un descuento de<br>
+             <b>80%</b>
+                <div style="color: gray; font-size: 14px;">*presentar documentación</div>
+            </div>
+        </div>
+        <div class="aqua-border" >
+          <strong>Trainee</strong> 
+            <div class="discount-text" style="color: black;">
+                Tiene un descuento de<br>
+                <b>50%</b>
+                <div style="color: gray; font-size: 14px;">*presentar documentación</div>
+            </div>
+        </div>
+        <div class="gold-border" >
+            <strong>Junior</strong>
+            <div class="discount-text" style="color: black;">
+                Tiene un descuento de<br>
+                <b>15%</b>
+                <div style="color: gray; font-size: 14px;">*presentar documentación</div>
+            </div>
+        </div>
+     <div class="texto" >
+        <h7 style="margin-left: 44%;   ;">Venta </h7>
+        <h2 style="margin-left: 22%;   "><b><span style="white-space: nowrap;">VALOR DE TICKET $200</span></b></h2>
+    
+     <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" id="nombre">
+         <br>
+         <br>
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" id="apellido">
+        <br>
+        <br>
+        </div>
+        
+        <div class="row">
+        
+         <input type="email" class="form-control" id="correo" placeholder="Correo">
+        
+         </div>
+    </div>
+     <div class="row" >
+        <div class="col">
+            <label for="floatingInput">Cantidad </label>
+          <input type="number" class="form-control" placeholder="cantidad" aria-label="cantidad" id="cantidad">
+         <br>
+         <br>
+        </div>
+        <div class="col">
+            <label for="floatingInput">Categoria </label>
+            <select class="form-select" aria-label="Default select example" id="categoria">
+                <option selected>Seleccione una categoria</option>
+                <option value="1">Estudiante</option>
+                <option value="2">Trainee</option>
+                <option value="3">Junior</option>
+            </select>
+            <br>
+            <br>
+        </div>
+        
+
+     
+        <label style="background-color: rgb(135, 191, 244);  flex-wrap: wrap;"><p id="total">Total a pagar:$</p> </label>
+         
+
+     </div>
+    <br>
+    <br>
+     <script>
+        function calcularTotal() {
+            // Obtener el valor de la cantidad
+            var cantidad = document.getElementById('cantidad').value;
+
+            // Obtener la opción seleccionada de la categoría
+            var categoria = document.getElementById('categoria').value;
+
+            // Calcular el total basado en la categoría seleccionada
+            var total;
+            if (categoria === '1') { // Estudiante
+                total = cantidad *200* 0.8;
+            } else if (categoria === '2') { // Trainee
+                total = cantidad *200 *0.5;
+            } else if (categoria === '3') { // Junior
+                total = cantidad *200 *0.15;
+            } else {
+                // Categoría inválida, mostrar un mensaje de error
+                alert('Selecciona una categoría válida');
+                return;
+            }
+
+            // Mostrar el total en el elemento con id "total"
+            document.getElementById('total').textContent = 'Total a pagar: $' + total.toFixed(2);
+        }
+    </script>
+    <div class="row">
+        <div class="col">
+     <button type="button" class="btn btn-success " style="background-color: rgb(108, 200, 16);width: 100%;" onclick="limpiarCampos()">Borrar</button>
+     </div>
+     <div class="col">
+     <button type="button" class="btn btn-success "  style="background-color: rgb(108, 200, 16);width: 100%;" onclick="calcularTotal()">Resumen</button>
+      <script>
+        function limpiarCampos() {
+            document.getElementById('nombre').value = '';
+            document.getElementById('apellido').value = '';
+            document.getElementById('correo').value = '';
+            document.getElementById('cantidad').value = '';
+            document.getElementById('categoria').value = '';
+            document.getElementById('total a pagar').value = '';
+        }
+    </script>
+    </div>
+     </div>
+    </div>  
+
+    </div>
+   
+   
+
+
+
+    <footer>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid" style="background-color: rgb(12, 22, 92);">
+                <a class="navbar-brand" href="#" style="color:white"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText" style="margin-left: 25%;">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <div> <a class="nav-link active" aria-current="page" href="#" style="color:white">Preguntas
+                                    <br>frecuentes</a> </div>
+                        </li>
+    
+                        <li class="nav-item">
+                            <div> <a class="nav-link" href="#" style="color:white">Contactános</a> </div>
+                        </li>
+                        <li class="nav-item">
+                            <div> <a class="nav-link" href="#" style="color:white">Prensa</a> </div>
+                        </li>
+                        <li class="nav-item">
+                            <div> <a class="nav-link" href="#" style="color:white">Conferencia</a> </div>
+                        </li>
+                        <li class="nav-item">
+                            <div> <a class="nav-link" href="#" style="color:white">Terminos y <br>
+                                    condiciones</a> </div>
+                        </li>
+                        <li class="nav-item">
+                            <div> <a class="nav-link" href="#" style="color:white">Privacidad</a> </div>
+                        </li>
+                        <li class="nav-item">
+                            <div> <a class="nav-link" href="#" style="color:white">Estudiantes</a> </div>
+                        </li>
+                    </ul>
+    
+                </div>
+            </div>
+        </nav>
+    </footer>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>
