@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lista de Socios</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Lista de Socios</h1>
+
+        <!-- Tabla para mostrar los socios -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>id_Socio</th>
+                    <th>nombre</th>
+                    <th>apellido</th>
+                    <th>dni</th>
+                    <th>mail</th>
+                    <th>estado</th>
+                    <th>fecha_alta</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se generarán las filas con los datos de los socios -->
+                <% List<Socios> socios = socioDAO.obtenerSocios();
+                    for (Socios socios : socios) {
+                    %>
+                    <tr>
+                        <td>
+                            <%= socio.getIdSocio() %>
+                        </td>
+                        <td>
+                            <%= socio.getNombre() %>
+                        </td>
+                        <td>
+                            <%= socio.getApellido() %>
+                        </td>
+                        <td>
+                            <%= socio.getDni() %>
+                        </td>
+                        <td>
+                            <%= socio.getMail() %>
+                        </td>
+                        <td>
+                            <%= socio.isEstado() ? "Activo" : "Inactivo" %>
+                        </td>
+                        <td>
+                            <%= socio.getFechaAlta() %>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+
+        <!-- Botón para agregar socio -->
+        <a class="btn btn-primary" href="agregarsocio.html">Agregar Socio</a>
+    </div>
+</body>
+
+</html>
